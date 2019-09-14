@@ -1,0 +1,39 @@
+https://www.hackerrank.com/challenges/plus-minus/problem
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void plusMinus(vector <int> arr) {
+    // Complete this function
+    
+    float cp,cn,cz;
+    cp=cn=cz=0.0f;
+    
+    for(int i=0;i<arr.size();i++)
+    {
+        if(arr[i]>0)
+            cp++;
+        else if(arr[i]<0)
+            cn++;
+        else 
+            cz++;
+    }
+    
+    cout<<cp/(cp+cn+cz)<<endl;
+    cout<<cn/(cp+cn+cz)<<endl;
+    cout<<cz/(cp+cn+cz)<<endl;
+    
+    
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int arr_i = 0; arr_i < n; arr_i++){
+       cin >> arr[arr_i];
+    }
+    plusMinus(arr);
+    return 0;
+}

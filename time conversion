@@ -1,0 +1,81 @@
+https://www.hackerrank.com/challenges/time-conversion/problem
+
+//TIME CONVERSION
+/*Problem Statement
+
+You are given time in AM/PM format. Convert this into a 24 hour format.
+
+Note Midnight is 12:00:00AM or 00:00:00 and 12 Noon is 12:00:00PM.
+
+Input Format
+
+Input consists of time in the AM/PM format i.e. hh:mm:ssAM or hh:mm:ssPM 
+where 
+01=hh=12 
+00=mm=59 
+00=ss=59
+
+Output Format
+
+You need to print the time in 24 hour format i.e. hh:mm:ss 
+where 
+00=hh=23 
+00=mm=59 
+00=ss=59
+
+Sample Input
+
+07:05:45PM
+Sample Output
+
+19:05:45
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+	char str[11];
+	char substr[3];
+	char new_str[10];
+	int i,hr;
+	i=0;
+	scanf("%s",str);
+    
+
+	substr[0]=str[0];
+	substr[1]=str[1];
+	substr[2]='\0';
+	
+	hr=atoi(substr);
+	//printf("%d",hr);
+
+    if(str[8]=='P')
+     {
+     	if(hr<12)
+     	hr=hr+12;
+     	else if(hr==12) 
+     	hr=12;
+     	else
+     	hr=0;
+     }
+     else
+     {
+     	if(hr==12)
+     	 hr=0;
+	 }
+     //printf("%d\n",hr);
+    i=2;
+    new_str[0]=hr/10+'0';
+	new_str[1]=hr%10+'0';
+	//printf("%d",new_str[0]);
+	while(str[i]!='A' && str[i]!='P')
+	{
+		new_str[i]=str[i];
+		i++;
+	}
+	new_str[8]='\0';
+	printf("%s",new_str);
+	return 0;
+}

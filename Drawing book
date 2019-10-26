@@ -1,0 +1,53 @@
+//https://www.hackerrank.com/challenges/drawing-book/problem
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int solve(int n, int p){
+    // Complete this function
+    int turns,dist;
+
+    /*
+    for p=1;turns=0
+             p=2;turns=1;
+             p=3;turns=1
+             p=4;turns=2
+             p=5;turns=2
+             p=6;turns=2;
+             p=7;turns=2;
+             p=8;turns=1
+             p=9;turns=1;
+             p=10;turns=0;
+    */
+
+
+    if(p==n/2)
+        turns=p/2;
+    if(n-p<p)
+             dist=n-p;
+    else
+             dist=p;
+
+      /*
+
+      */
+      if(n%2==0 && p%2!=0 && n-p<p)
+      {
+       turns=(dist/2)+1;
+       return turns;
+      }
+      turns=dist/2;
+
+
+    return turns;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int p;
+    cin >> p;
+    int result = solve(n, p);
+    cout << result << endl;
+    return 0;
+}

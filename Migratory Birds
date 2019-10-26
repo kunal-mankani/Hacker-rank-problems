@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int migratoryBirds(int n, vector <int> ar) {
+    // Complete this function
+    map<int,int> cnt;
+    int max=INT_MIN;
+    for(int i=0;i<ar.size();i++)
+    {
+        cnt[ar[i]]++;
+        if(cnt[ar[i]]>max)
+            max=cnt[ar[i]];
+    }
+    int min_i=INT_MAX;
+    for(int i=0;i<ar.size();i++)
+    {
+        if(max==cnt[ar[i]])
+        {
+            if(ar[i]<min_i)
+                min_i=ar[i];
+    }
+      
+    }  
+    
+    
+    return min_i;
+    
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> ar(n);
+    for(int ar_i = 0; ar_i < n; ar_i++){
+       cin >> ar[ar_i];
+    }
+    int result = migratoryBirds(n, ar);
+    cout << result << endl;
+    return 0;
+}

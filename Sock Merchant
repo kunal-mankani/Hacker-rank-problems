@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int sockMerchant(int n, vector <int> ar) {
+    // Complete this function
+    map<int,int> sock_cnt;
+    int sum=0;
+    int len=ar.size();
+    for(int i=0;i<len;i++)
+    {
+      sock_cnt[ar[i]]+=1;
+    }
+    for(int i=0;i<len;i++)
+    {
+        //cout<<sock_cnt[ar[i]]<<endl;
+    }
+    for(int i=0;i<sock_cnt.size();i++)
+    {
+        if(sock_cnt[i]!=0)
+         sum=sum+sock_cnt[i]/2;
+    }
+     
+        
+    return sum;    
+
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> ar(n);
+    for(int ar_i = 0; ar_i < n; ar_i++){
+       cin >> ar[ar_i];
+    }
+    int result = sockMerchant(n, ar);
+    cout << result << endl;
+    return 0;
+}
